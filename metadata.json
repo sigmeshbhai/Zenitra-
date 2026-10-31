@@ -1,0 +1,6 @@
+{
+  "name": "Zenitra '26 — Inter-School Fest",
+  "description": "Official portal for Zenitra 2026, an inter-school fest presented by Christ Junior College - Residential. Featuring committees, resources, schedule, gallery, and registrations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

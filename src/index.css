@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color-scheme: dark;
+    background-color: #000000;
+    color: #f7eff0;
+  }
+
+  /* Teleport anchor scroll offset for sticky header */
+  [id] {
+    scroll-margin-top: 5.5rem;
+  }
+}
+
+.font-gothic {
+  font-family: 'UnifrakturMaguntia', cursive, serif;
+}
+
+.font-serif-display {
+  font-family: 'Bodoni Moda', 'Playfair Display', Georgia, serif;
+}
+
+.font-editorial-intro {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-display {
+  font-family: 'Cinzel', serif;
+}
+
+.font-decorative {
+  font-family: 'Cinzel Decorative', 'Cinzel', serif;
+}
+
+.font-body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.font-mono-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom subtle dark scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #2b080f;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #470f1a;
+}
+
+/* ==========================================================================
+   Motion Blur Teleportation Styles & Speed Lines
+   ========================================================================== */
+
+/* Motion blur state for page during warp scroll - buttery smooth */
+.motion-blur-active {
+  filter: blur(var(--teleport-blur, 3px));
+  transform: scaleY(1.006) scaleX(0.998);
+  pointer-events: none;
+  transition: filter 120ms ease-out, transform 120ms ease-out;
+}
+
+.motion-blur-settling {
+  filter: blur(0px);
+  transform: scaleY(1) scaleX(1);
+  transition: filter 220ms cubic-bezier(0.16, 1, 0.3, 1), transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Speed line streaks */
+@keyframes warpStreakDown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(120%);
+    opacity: 0;
+  }
+}
+
+@keyframes warpStreakUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-120%);
+    opacity: 0;
+  }
+}
+
+.speed-streak-down {
+  animation: warpStreakDown 0.4s linear infinite;
+}
+
+.speed-streak-up {
+  animation: warpStreakUp 0.4s linear infinite;
+}
+
+/* Arrival subtle highlight glow on teleport destination */
+@keyframes teleportArrivalGlow {
+  0% {
+    outline: 2px solid rgba(243, 197, 122, 0.7);
+    box-shadow: 0 0 30px 6px rgba(189, 32, 57, 0.45);
+  }
+  50% {
+    outline: 2px solid rgba(243, 197, 122, 0.45);
+    box-shadow: 0 0 40px 8px rgba(189, 32, 57, 0.25);
+  }
+  100% {
+    outline: 2px solid transparent;
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+.teleport-target-arrival {
+  animation: teleportArrivalGlow 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  border-radius: 1.5rem;
+}
