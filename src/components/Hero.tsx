@@ -31,7 +31,7 @@ export const Hero: React.FC<HeroProps> = () => {
         aria-hidden="true"
       >
         <img
-          src="/assets/aistudio/image_c0e43b38.png"
+          src="assets/aistudio/image_c0e43b38.png"
           alt=""
           className="w-full h-full object-contain select-none mix-blend-lighten opacity-95 filter contrast-110"
           referrerPolicy="no-referrer"
